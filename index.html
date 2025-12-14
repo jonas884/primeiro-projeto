@@ -16,87 +16,102 @@
     <title>meu primeiro projeto</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>projeto 1</h1>
-    <div id="container">
-        <div id="profile">
-          <img id="avatar" src="./assets/gambit.jpg" alt="foto de gambit"
-              data-dark="./assets/gambit.jpg"
-              data-light="./assets/090864_11_1024x1024.webp">
-            <p>@gambit</p>
-        </div>
-        <div id="switch" onclick="toggleMode()">
-            <button></button>
-            <span></span>
-        </div>
-        <ul>
-            <li>
-                <a href="#">Inscreve-se no NLW</a>
-            </li>
-            <li>
-                <a href="#">
-                    Baixar meu e-book
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meu Primeiro Projeto</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Projeto 1</h1>
+        <div id="container">
+            <div id="profile">
+              <img id="avatar" src="./assets/gambit.jpg" alt="Foto de Gambit"
+                  data-dark="./assets/gambit.jpg"
+                  data-light="./assets/090864_11_1024x1024.webp">
+                <p>@gambit</p>
+            </div>
+            <div id="switch">
+                <button id="theme-toggle" type="button" aria-label="Alternar tema" onclick="toggleMode()"></button>
+                <span></span>
+            </div>
+            <ul>
+                <li>
+                    <a href="#">Inscreva-se no NLW</a>
+                </li>
+                <li>
+                    <a href="#">
+                        Baixar meu e-book
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/maykbrito">
+                        Ver meu portfólio
+                    </a>
+                </li>
+                <li>
+                    <a href="https://rocketseat.com.br/explorer">
+                        Conheça o Explorer
+                    </a>
+                </li>
+            </ul>
+
+            <div id="social-links">
+                <a href="https://github.com/maykbrito" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="logo-github"></ion-icon>
                 </a>
-            </li>
-            <li>
-                <a href="https://github.com/maykbrito">
-                    Ver meu portfólio
+                <a href="https://instagram.com/maykbrito" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="logo-instagram"></ion-icon>
                 </a>
-            </li>
-            <li>
-                <a href="https://rocketseat.com.br/explorer">
-                    
-                    Conheça o explorer
+                <a href="https://youtube.com/maykbrito" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="logo-youtube"></ion-icon>
                 </a>
-            </li>
-        </ul>
-
-        <div id="social-links">
-            <a href="https://github.com/maykbrito" target="_blank">
-                <ion-icon name="logo-github"></ion-icon>
-            </a>
-            <a href="https://instagram.com/maykbrito" target="_blank">
-                <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-            <a href="https://youtube.com/maykbrito" target="_blank">
-                <ion-icon name="logo-youtube"></ion-icon>
-            </a>
-            <a href="https://linkedin.com/maykbrito" target="_blank">
-                <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
+                <a href="https://linkedin.com/maykbrito" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </div>
+            <footer>
+                Feito com 💜 no NLW da Rocketseat
+            </footer>
         </div>
-        <footer>
-            Feito com 💜 no NLW da Rocketseat
-        </footer>
-    </div>
 
-   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-   <script>
-        function setAvatarForTheme(isLight) {
-            const avatar = document.getElementById('avatar')
-            if (!avatar) return
-            const src = isLight ? avatar.dataset.light : avatar.dataset.dark
-            if (src) avatar.src = src
-        }
+       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+       <script>
+            function setAvatarForTheme(isLight) {
+                const avatar = document.getElementById('avatar')
+                if (!avatar) return
+                const src = isLight ? avatar.dataset.light : avatar.dataset.dark
+                if (src) avatar.src = src
+            }
 
-        function applyTheme(isLight) {
-            const html = document.documentElement
-            html.classList.toggle('light', isLight)
-            setAvatarForTheme(isLight)
-        }
+            function applyTheme(isLight) {
+                const html = document.documentElement
+                html.classList.toggle('light', isLight)
+                setAvatarForTheme(isLight)
+            }
 
-        function toggleMode() {
-            const html = document.documentElement
-            const willBeLight = !html.classList.contains('light')
-            applyTheme(willBeLight)
-            localStorage.setItem('theme', willBeLight ? 'light' : 'dark')
-        }
+            function toggleMode() {
+                const html = document.documentElement
+                const willBeLight = !html.classList.contains('light')
+                applyTheme(willBeLight)
+                localStorage.setItem('theme', willBeLight ? 'light' : 'dark')
+            }
 
-        // Restaurar preferência salva e ajustar avatar
-        const savedTheme = localStorage.getItem('theme')
-        const isLight = savedTheme === 'light'
-        applyTheme(isLight)
-   </script>
-</body>
-</html>
+            // Restaurar preferência salva e ajustar avatar
+            const savedTheme = localStorage.getItem('theme')
+            const isLight = savedTheme === 'light'
+            applyTheme(isLight)
+       </script>
+    </body>
+    </html>
